@@ -1,0 +1,34 @@
+version: "3.9" # optional since v1.27.0
+services:
+  php:
+    image: php:7.2-apache
+    #build: ./www/Dockerbuild
+    #image: meuphp
+    ports:
+      - "80:80"
+    
+    volumes:
+     - ./www:/var/www/html
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: senharoot
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+# volumes:
+# - .:/code
+# - logvolume01:/var/log
+# links:
+# - redis
+# redis:
+# image: redis
+#volumes:
+# logvolume01: {}
