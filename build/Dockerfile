@@ -1,8 +1,7 @@
-FROM php>7.2-apache
+FROM php:7.2-apache
 
-RUN apt-get update && apt-get install -y unzip
+RUN apt-get update && apt-get install -y unzip wget
 
 RUN cd /var/www/html && \
     wget https://downloads.joomla.org/cms/joomla4/4-1-3/Joomla_4-1-3-Stable-Full_Package.zip?format=zip -O joomla.zip && \
-    cd /var/www/html && \
     unzip joomla.zip 

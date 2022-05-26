@@ -1,14 +1,14 @@
 version: "3.9" # optional since v1.27.0
 services:
   php:
-    image: php:7.2-apache
-    #build: ./www/Dockerbuild
-    #image: meuphp
+    #image: php:7.2-apache
+    build: build
+    image: meuphp
     ports:
       - "80:80"
     
-    volumes:
-     - ./www:/var/www/html
+    #volumes:
+    # - ./www:/var/www/html
 
   db:
     image: mysql
